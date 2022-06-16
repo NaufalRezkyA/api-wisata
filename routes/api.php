@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\ApiCustomerController;
 use App\Http\Controllers\ApiWisataController;
+use App\Http\Controllers\ApiTransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,11 +59,26 @@ Route::delete('/deletecustomer/{id}', [ApiCustomerController::class,'deletecusto
 //admin
 Route::post('/updateAdmin', [AdminController::class,'updateinfo']);
 Route::delete('/deleteAdmin', [AdminController::class,'deleteinfo']);
+Route::get('/admin-datatransaksi', [TransactionController::class,'index'])->middleware('auth');
+
 
 //transaksi
 
 // Route::get('/admin-datatransaksi', function () {
 //     return view('datatransaksi');
 // });
+Route::get('/admin-transaksi', [ApiTransaksiController::class,'allTransaction']);
 
-Route::get('/admin-datatransaksi', [TransactionController::class,'index'])->middleware('auth');
+Route::post('/inserttransaksi/{id}', [ApiTransaksiController::class,'createTransaction']);
+
+Route::get('/showhistory/{id}', [ApiTransaksiController::class,'historyTransaction']);
+
+
+Route::put('/updatetransaksi/{id}', [ApiTransaksiController::class,'updatecustomer']);
+Route::delete('/deletetransaksi/{id}', [ApiTransaksiController::class,'deletecustomer']);
+
+//login api
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::post('/inserttransaksi/{id}', [ApiTransaksiController::class,'createTransaction']);
+});
+Route::post('/customer_login', [ApiController::class,'auth']);
