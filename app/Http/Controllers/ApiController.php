@@ -51,7 +51,6 @@ class ApiController extends Controller
                 'message' => 'Wrong email/password'
             ], 401);
             return back()->with('loginError','Login failed!!!');
-    
         }
     
         $user = User::where('email', $request->email)->firstOrFail();

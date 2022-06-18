@@ -67,11 +67,7 @@ Route::get('/admin-datatransaksi', [TransactionController::class,'index'])->midd
 // Route::get('/admin-datatransaksi', function () {
 //     return view('datatransaksi');
 // });
-Route::get('/admin-transaksi', [ApiTransaksiController::class,'allTransaction']);
 
-Route::post('/inserttransaksi/{id}', [ApiTransaksiController::class,'createTransaction']);
-
-Route::get('/showhistory/{id}', [ApiTransaksiController::class,'historyTransaction']);
 
 
 Route::put('/updatetransaksi/{id}', [ApiTransaksiController::class,'updatecustomer']);
@@ -80,5 +76,11 @@ Route::delete('/deletetransaksi/{id}', [ApiTransaksiController::class,'deletecus
 //login api
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/inserttransaksi/{id}', [ApiTransaksiController::class,'createTransaction']);
+    Route::get('/admin-transaksi', [ApiTransaksiController::class,'allTransaction']);
+
+    Route::post('/inserttransaksi/{id}', [ApiTransaksiController::class,'createTransaction']);
+
+    Route::get('/showhistory/{id}', [ApiTransaksiController::class,'historyTransaction']);
 });
-Route::post('/customer_login', [ApiController::class,'auth']);
+Route::post('/admin_login', [ApiController::class,'auth']);
+Route::post('/customer_login', [ApiCustomerController::class,'auth']);
