@@ -6,34 +6,23 @@ use Illuminate\Http\Request;
 use App\Models\Wisata;
 use App\Models\Transaksi;
 use App\Models\User;
+use App\Models\Customer;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 class ApiTransaksiController extends Controller
 {
     public function createTransaction(Request $request, $id_wisata)
     {
-        // $validator = Validator::make($request->all(), [
-        //     'email_customer' => 'required',
-        //     'total_price' => 'required',
-        //     'packet' => 'required',
-
-        // ]);
-        // if ($validator->fails()) {
-        //     return response(['errors' => $validator->errors()->all()], 422);
-        // }
-        // Get Harga Paket Wisata
         $paket_wisata = Wisata::findOrFail($id_wisata)->first();
-
+        $data_cust = Customer::findOrFail(auth()->user()->id)->first();
         $data = Transaksi::create([
-            // 'id_user' => '1',
-            'id_user' => Auth::id(),
-            'id_wisata' => $id_wisata,
-            'email_customer' => $request->email_customer,
-            'packet' => $request->packet,
-            'total_price' => $paket_wisata->harga * $request->packet,
-            'nama_wisata' =>  $paket_wisata->nama,
-            'payment_status' => 'Unpaid',
-            'payment_date' => "senin",
+            'id_user'=> $data_cust->id,
+            'id_wisata' => $paket_wisata->id,
+            'email_customer'=>$data_cust->email,
+            'nama_wisata' => $paket_wisata->nama,
+            'payment_date'=> $request->payment_date,
+            'payment_status'=> "Unpaid",
+            'total_price' => $paket_wisata->harga
         ]);
 
         return response()->json([
@@ -48,7 +37,7 @@ class ApiTransaksiController extends Controller
         $data = DB::table('transaksi')
             ->join('users', 'transaksi.id_user', '=', 'users.id')
             ->join('paket_wisata', 'transaksi.id_paket_wisata', '=', 'paket_wisata.id')
-            ->select('transaksi.id', 'users.nama', 'paket_wisata.nama_paket', 'transaksi.email_customer', 'transaksi.total_price', 'paket_wisata.harga', 'transaksi.packet', 'transaksi.payment_status', 'transaksi.created_at')
+            ->select('transaksi.id', 'users.nama', 'paket_wisata.nama_paket', 'transaksi.email_customer', 'transaksi.total_price', 'paket_wisata.harga', 'transaksi.packet', 'transaksi.payment_status', 'transaksi.created_at','wisatas.foto')
             ->get();
 
         if (!$data->isEmpty()) {
@@ -68,11 +57,11 @@ class ApiTransaksiController extends Controller
 
     public function historyTransaction()
     {
-        $data = DB::table('transaksi')
-            ->join('users', 'transaksi.id_user', '=', 'users.id')
-            ->join('paket_wisata', 'transaksi.id_paket_wisata', '=', 'paket_wisata.id')
-            ->select('paket_wisata.nama_paket', 'transaksi.email_customer', 'transaksi.total_price', 'paket_wisata.harga', 'transaksi.payment_status', 'transaksi.created_at')
-            ->where('transaksi.id_user', '=', auth()->user()->id)
+        $data = DB::table('transactions')
+            ->join('customers', 'transactions.id_user', '=', 'customers.id')
+            ->join('wisatas', 'transactions.id_wisata', '=', 'wisatas.id')
+            ->select('wisatas.rating','wisatas.foto','wisatas.nama', 'transactions.email_customer', 'transactions.total_price', 'transactions.payment_status', 'transactions.created_at')
+            ->where('transactions.id_user', '=', auth()->user()->id)
             ->get();
 
         if (!$data->isEmpty()) {

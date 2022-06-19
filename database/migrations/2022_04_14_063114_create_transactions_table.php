@@ -23,9 +23,6 @@ return new class extends Migration
             $table->string('payment_date');
             $table->string('payment_status')->default('Unpaid');
             $table->BigInteger('total_price');
-            // $table->string('foto');
-            $table->BigInteger('packet');
-            
         });
 
         Schema::table('transactions', function (Blueprint $table) {

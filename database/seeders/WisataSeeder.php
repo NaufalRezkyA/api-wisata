@@ -18,7 +18,7 @@ class WisataSeeder extends Seeder
     {
         DB::table('wisatas')->insert([
             'nama' => 'KUTA BEACH',
-            'foto' => 'balipackage.jpg',
+            'foto' => 'https://cdn.pixabay.com/photo/2013/11/15/12/19/pantai-210867_960_720.jpg',
             'lokasi' => 'Denpasar, Bali',
             'deskripsi' => 'It is a long established fact that a reader will be distracted by the readable content of a page.',
             'rating' => '5',
@@ -29,7 +29,7 @@ class WisataSeeder extends Seeder
         );
         DB::table('wisatas')->insert([
             'nama' => 'KUTA BEACH2',
-            'foto' => 'balipackage.jpg',
+            'foto' => 'https://cdn.pixabay.com/photo/2013/11/15/12/19/pantai-210867_960_720.jpg',
             'lokasi' => 'Denpasar, Bali',
             'deskripsi' => 'It is a long established fact that a reader will be distracted by the readable content of a page.',
             'rating' => '5',
@@ -40,7 +40,7 @@ class WisataSeeder extends Seeder
         );
         DB::table('wisatas')->insert([
             'nama' => 'KUTA BEACH3',
-            'foto' => 'balipackage.jpg',
+            'foto' => 'https://cdn.pixabay.com/photo/2013/11/15/12/19/pantai-210867_960_720.jpg',
             'lokasi' => 'Denpasar, Bali',
             'deskripsi' => 'It is a long established fact that a reader will be distracted by the readable content of a page.',
             'rating' => '5',
@@ -51,7 +51,7 @@ class WisataSeeder extends Seeder
         );
         DB::table('wisatas')->insert([
             'nama' => 'KUTA BEACH4',
-            'foto' => 'balipackage.jpg',
+            'foto' => 'https://cdn.pixabay.com/photo/2013/11/15/12/19/pantai-210867_960_720.jpg',
             'lokasi' => 'Denpasar, Bali',
             'deskripsi' => 'It is a long established fact that a reader will be distracted by the readable content of a page.',
             'rating' => '5',
@@ -62,7 +62,7 @@ class WisataSeeder extends Seeder
         );
         DB::table('wisatas')->insert([
             'nama' => 'KUTA BEACH5',
-            'foto' => 'balipackage.jpg',
+            'foto' => 'https://cdn.pixabay.com/photo/2013/11/15/12/19/pantai-210867_960_720.jpg',
             'lokasi' => 'Denpasar, Bali',
             'deskripsi' => 'It is a long established fact that a reader will be distracted by the readable content of a page.',
             'rating' => '5',
@@ -73,7 +73,7 @@ class WisataSeeder extends Seeder
         );
         DB::table('wisatas')->insert([
             'nama' => 'KUTA BEACH6',
-            'foto' => 'balipackage.jpg',
+            'foto' => 'https://cdn.pixabay.com/photo/2013/11/15/12/19/pantai-210867_960_720.jpg',
             'lokasi' => 'Denpasar, Bali',
             'deskripsi' => 'It is a long established fact that a reader will be distracted by the readable content of a page.',
             'rating' => '5',
@@ -84,7 +84,7 @@ class WisataSeeder extends Seeder
         );
         DB::table('wisatas')->insert([
             'nama' => 'KUTA BEACH7',
-            'foto' => 'balipackage.jpg',
+            'foto' => 'https://cdn.pixabay.com/photo/2013/11/15/12/19/pantai-210867_960_720.jpg',
             'lokasi' => 'Denpasar, Bali',
             'deskripsi' => 'It is a long established fact that a reader will be distracted by the readable content of a page.',
             'rating' => '5',
@@ -95,7 +95,7 @@ class WisataSeeder extends Seeder
         );
         DB::table('wisatas')->insert([
             'nama' => 'KUTA BEACH8',
-            'foto' => 'balipackage.jpg',
+            'foto' => 'https://cdn.pixabay.com/photo/2013/11/15/12/19/pantai-210867_960_720.jpg',
             'lokasi' => 'Denpasar, Bali',
             'deskripsi' => 'It is a long established fact that a reader will be distracted by the readable content of a page.',
             'rating' => '5',

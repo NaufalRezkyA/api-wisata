@@ -32,7 +32,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::post('/signup', [ApiController::class, 'store']);
 
 //wisata
-Route::get('/admin-wisata', [ApiWisataController::class,'index'])->name('wisata');
+
 
 
 Route::post('/insertwisata', [ApiWisataController::class,'insertwisata']);
@@ -75,12 +75,10 @@ Route::delete('/deletetransaksi/{id}', [ApiTransaksiController::class,'deletecus
 
 //login api
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::post('/inserttransaksi/{id}', [ApiTransaksiController::class,'createTransaction']);
-    Route::get('/admin-transaksi', [ApiTransaksiController::class,'allTransaction']);
-
-    Route::post('/inserttransaksi/{id}', [ApiTransaksiController::class,'createTransaction']);
-
-    Route::get('/showhistory/{id}', [ApiTransaksiController::class,'historyTransaction']);
+    Route::get('/get_profile', [ApiCustomerController::class,'getProfile']);
+    Route::post('/insert_transaksi/{id}', [ApiTransaksiController::class,'createTransaction']);
+    Route::get('/show_history', [ApiTransaksiController::class,'historyTransaction']);
 });
 Route::post('/admin_login', [ApiController::class,'auth']);
+Route::get('/admin-wisata', [ApiWisataController::class,'index'])->name('wisata');
 Route::post('/customer_login', [ApiCustomerController::class,'auth']);

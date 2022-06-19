@@ -80,4 +80,20 @@ class ApiCustomerController extends Controller
             ]
         ], 200);
         }
+
+    public function getProfile()
+    {
+        try {
+            $data =  Customer::find(auth()->user()->id);
+            return response()->json([
+                'status' => true,
+                'data' => $data
+            ], 200);
+        } catch (\Throwable $e) {
+            return response()->json([
+                'status' => false,
+                'errors' => $e->getMessage()
+            ], 400);
+        }
+    }
 }
