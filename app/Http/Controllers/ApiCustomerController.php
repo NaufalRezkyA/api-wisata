@@ -100,15 +100,20 @@ class ApiCustomerController extends Controller
 
      # fungsi untuk logout
      public function logout(Request $request){
-        Auth::guard('customer')->logout();
-        $request->session()->invalidate();
-        # regenerate Token
-        $request->session()->regenerateToken();
-    
-        return response()->json([
-            'success' => true,
-            'message' => 'Logout success!',
-        ], 200);
+        $request->user()->currentAccessToken()->delete();
+        try{
+            return response()->json([
+                'success' => true,
+                'message' => 'Logout success!',
+            ], 200);
+        }catch(\Throwable $e){
+            return response()->json([
+                'success' => true,
+                'message' => 'Logout failed!',
+                'error' => $e->getMessage()
+            ], 422);
+        }
+        
     }
 
     // public function logout(Request $request) {

@@ -79,9 +79,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/get_profile', [ApiCustomerController::class,'getProfile']);
     Route::post('/insert_transaksi/{id}', [ApiTransaksiController::class,'createTransaction']);
     Route::get('/show_history', [ApiTransaksiController::class,'historyTransaction']);
-    Route::post('customer_logout', [ApiCustomerController::class, 'logout'])->name('logout');
+    Route::get('/customer_logout', [ApiCustomerController::class, 'logout']);
 });
 Route::post('/admin_login', [ApiController::class,'auth']);
 Route::get('/admin-wisata', [ApiWisataController::class,'index'])->name('wisata');
 Route::post('/customer_login', [ApiCustomerController::class,'auth']);
-// Route::post('/customer_logout', [ApiCustomerController::class, 'logout']);

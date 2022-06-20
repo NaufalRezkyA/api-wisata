@@ -20,7 +20,7 @@ class CustomerSeeder extends Seeder
         DB::table('customers')->insert([
             'full_name' => 'yusuf',
             'email' =>'user@gmail.com',
-            'phone' => '123123123',
+            'phone' => '08123232325',
             'password' => Hash::make('testing'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
