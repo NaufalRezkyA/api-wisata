@@ -96,4 +96,30 @@ class ApiCustomerController extends Controller
             ], 400);
         }
     }
+
+
+     # fungsi untuk logout
+     public function logout(Request $request){
+        Auth::guard('customer')->logout();
+        $request->session()->invalidate();
+        # regenerate Token
+        $request->session()->regenerateToken();
+    
+        return response()->json([
+            'success' => true,
+            'message' => 'Logout success!',
+        ], 200);
+    }
+
+    // public function logout(Request $request) {
+    //     $customer = $request-customer();
+    //     $customer->currentAccessToken()->delete();
+    //     $respon = [
+    //         'status' => 'success',
+    //         'msg' => 'Logout successfully',
+    //         'errors' => null,
+    //         'content' => null,
+    //     ];
+    //     return response()->json($respon, 200);
+    // }
 }
