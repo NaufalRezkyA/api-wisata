@@ -29,6 +29,7 @@ use App\Http\Controllers\ApiTransaksiController;
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
+
 Route::post('/signup', [ApiController::class, 'store']);
 
 //wisata
@@ -78,6 +79,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/get_profile', [ApiCustomerController::class,'getProfile']);
     Route::post('/insert_transaksi/{id}', [ApiTransaksiController::class,'createTransaction']);
     Route::get('/show_history', [ApiTransaksiController::class,'historyTransaction']);
+    Route::get('/customer_logout', [ApiCustomerController::class, 'logout']);
 });
 Route::post('/admin_login', [ApiController::class,'auth']);
 Route::get('/admin-wisata', [ApiWisataController::class,'index'])->name('wisata');

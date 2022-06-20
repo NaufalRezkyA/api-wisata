@@ -96,4 +96,35 @@ class ApiCustomerController extends Controller
             ], 400);
         }
     }
+
+
+     # fungsi untuk logout
+     public function logout(Request $request){
+        $request->user()->currentAccessToken()->delete();
+        try{
+            return response()->json([
+                'success' => true,
+                'message' => 'Logout success!',
+            ], 200);
+        }catch(\Throwable $e){
+            return response()->json([
+                'success' => true,
+                'message' => 'Logout failed!',
+                'error' => $e->getMessage()
+            ], 422);
+        }
+        
+    }
+
+    // public function logout(Request $request) {
+    //     $customer = $request-customer();
+    //     $customer->currentAccessToken()->delete();
+    //     $respon = [
+    //         'status' => 'success',
+    //         'msg' => 'Logout successfully',
+    //         'errors' => null,
+    //         'content' => null,
+    //     ];
+    //     return response()->json($respon, 200);
+    // }
 }
