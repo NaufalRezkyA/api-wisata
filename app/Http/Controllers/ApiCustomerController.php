@@ -115,16 +115,4 @@ class ApiCustomerController extends Controller
         }
         
     }
-
-    // public function logout(Request $request) {
-    //     $customer = $request-customer();
-    //     $customer->currentAccessToken()->delete();
-    //     $respon = [
-    //         'status' => 'success',
-    //         'msg' => 'Logout successfully',
-    //         'errors' => null,
-    //         'content' => null,
-    //     ];
-    //     return response()->json($respon, 200);
-    // }
 }
