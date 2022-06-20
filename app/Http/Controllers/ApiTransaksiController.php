@@ -60,7 +60,7 @@ class ApiTransaksiController extends Controller
         $data = DB::table('transactions')
             ->join('customers', 'transactions.id_user', '=', 'customers.id')
             ->join('wisatas', 'transactions.id_wisata', '=', 'wisatas.id')
-            ->select('wisatas.rating','wisatas.foto','wisatas.nama', 'transactions.email_customer', 'transactions.total_price', 'transactions.payment_status', 'transactions.created_at')
+            ->select('wisatas.rating','wisatas.foto','wisatas.nama', 'transactions.email_customer', 'transactions.total_price', 'transactions.payment_status', 'transactions.payment_date')
             ->where('transactions.id_user', '=', auth()->user()->id)
             ->get();
 
