@@ -22,6 +22,14 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/destination', function () {
+    return view('listwisata');
+});
+
+Route::get('/detailwisata', function () {
+    return view('detailwisata');
+});
+
 // auth
 Route::get('/login', function () {
     return view('login');

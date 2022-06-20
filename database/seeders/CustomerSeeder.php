@@ -18,10 +18,10 @@ class CustomerSeeder extends Seeder
     {
 
         DB::table('customers')->insert([
-            'full_name' => 'kontolyusuf',
-            'email' =>'user@gmail.com',
-            'phone' => '123123123',
-            'password' => Hash::make('testing'),
+            'full_name' => 'Fauzan Avidiansyah',
+            'email' =>'fauzanavidian2@gmail.com',
+            'phone' => '085921952456',
+            'password' => Hash::make('test'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
