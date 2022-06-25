@@ -48,11 +48,9 @@
                         <td>{{ $row->updated_at->diffForHumans() }}</td>
                         <td>
                             <form action="/deletecustomer/{{ $row->id }}" method="post">
-                            <!-- <a href="/deletecustomer/{{ $row->id }}"
-                                class="btn btn-danger mb-1 delete">Delete</a> -->
                             @method('delete')
                             @csrf
-                            <button class="btn btn-danger mb-1 delete">Delete</button>   
+                            <button class="btn btn-danger mb-1 delete">Delete</button>
                             </form>
                             <a href="/showcustomer/{{$row->id }}"
                                 class="btn btn-primary">Edit</a>
