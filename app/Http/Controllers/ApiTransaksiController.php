@@ -17,7 +17,7 @@ class ApiTransaksiController extends Controller
         $data_cust = Customer::findOrFail(auth()->user()->id)->first();
         $data = Transaksi::create([
             'id_user'=> $data_cust->id,
-            'id_wisata' => $paket_wisata->id,
+            'id_wisata' => $id_wisata,
             'email_customer'=>$data_cust->email,
             'nama_wisata' => $paket_wisata->nama,
             'payment_date'=> $request->payment_date,
