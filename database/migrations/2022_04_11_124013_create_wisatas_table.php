@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama')->unique();
             $table->string('foto');
             $table->string('lokasi');
+            $table->string('koordinat');
             $table->text('deskripsi');
             $table->integer('harga');
             $table->enum('rating',[1,2,3,4,5]);

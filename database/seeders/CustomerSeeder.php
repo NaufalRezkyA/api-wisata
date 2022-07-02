@@ -19,9 +19,9 @@ class CustomerSeeder extends Seeder
 
         DB::table('customers')->insert([
             'full_name' => 'Fauzan Avidiansyah',
-            'email' =>'fauzanavidian2@gmail.com',
+            'email' =>'admin@gmail.com',
             'phone' => '085921952456',
-            'password' => Hash::make('test'),
+            'password' => Hash::make('admin'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

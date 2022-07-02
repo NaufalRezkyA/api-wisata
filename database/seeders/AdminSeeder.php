@@ -20,8 +20,8 @@ class AdminSeeder extends Seeder
     {
      User::create([
         'name'=>'okeaja',
-        'email'=>'okeaja@gmail.com',
-        'password'=>Hash::make('12345'),
+        'email'=>'admin@gmail.com',
+        'password'=>Hash::make('admin'),
         'phone'=>'02848252',
         'motto'=>'aku bisa makan',
         'usia'=> 23,

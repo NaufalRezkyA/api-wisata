@@ -210,11 +210,15 @@ class Stringable implements JsonSerializable
     /**
      * Determine if the string is an exact match with the given value.
      *
-     * @param  string  $value
+     * @param  \Illuminate\Support\Stringable|string  $value
      * @return bool
      */
     public function exactly($value)
     {
+        if ($value instanceof Stringable) {
+            $value = $value->toString();
+        }
+
         return $this->value === $value;
     }
 
@@ -291,6 +295,16 @@ class Stringable implements JsonSerializable
     public function isAscii()
     {
         return Str::isAscii($this->value);
+    }
+
+    /**
+     * Determine if a given string is valid JSON.
+     *
+     * @return bool
+     */
+    public function isJson()
+    {
+        return Str::isJson($this->value);
     }
 
     /**

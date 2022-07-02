@@ -28,6 +28,7 @@ class WisataController extends Controller
         $request->validate([
             'nama' => 'required|string|max:255',
             'lokasi' => 'required|string',
+            'koordinat' => 'required|string',
             'deskripsi' => 'required|string',
             'harga' => 'required|integer',
             'rating' => 'required',

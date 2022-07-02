@@ -20,56 +20,61 @@ class TransactionSeeder extends Seeder
     {
         //
         DB::table('transactions')->insert([
+            'id_user' => '1',
+            'id_wisata' => '1',
             'email_customer' => Customer::inRandomOrder()->first()->email,
             'nama_wisata' => Wisata::inRandomOrder()->first()->nama,
             'payment_date' => '02 Desember 2022',
             'payment_status' => 'Paid',
             'total_price' => '500000',
-            'foto'=>'test',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('transactions')->insert([
+            'id_user' => '2',
+            'id_wisata' => '1',
             'email_customer' => Customer::inRandomOrder()->first()->email,
             'nama_wisata' => Wisata::inRandomOrder()->first()->nama,
             'payment_date' => '03 Desember 2022',
             'payment_status' => 'Paid',
             'total_price' => '500000',
-            'foto'=>'test',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('transactions')->insert([
+            'id_user' => '3',
+            'id_wisata' => '1',
             'email_customer' => Customer::inRandomOrder()->first()->email,
             'nama_wisata' => Wisata::inRandomOrder()->first()->nama,
             'payment_date' => '04 Desember 2022',
             'payment_status' => 'Paid',
             'total_price' => '500000',
-            'foto'=>'test',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('transactions')->insert([
+            'id_user' => '4',
+            'id_wisata' => '1',
             'email_customer' => Customer::inRandomOrder()->first()->email,
             'nama_wisata' => Wisata::inRandomOrder()->first()->nama,
             'payment_date' => '05 Desember 2022',
             'payment_status' => 'Paid',
             'total_price' => '500000',
-            'foto'=>'test',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('transactions')->insert([
+            'id_user' => '5',
+            'id_wisata' => '1',
             'email_customer' => Customer::inRandomOrder()->first()->email,
             'nama_wisata' => Wisata::inRandomOrder()->first()->nama,
             'payment_date' => '06 Desember 2022',
             'payment_status' => 'Paid',
             'total_price' => '500000',
-            'foto'=>'test',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
